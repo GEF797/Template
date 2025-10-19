@@ -1,0 +1,45 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "UIForGAS",
+	"Description": "Gameplay Attribute binding to UMG ViewModel, displaying Attribute values to UMG",
+	"Category": "G.E.FC",
+	"CreatedBy": "G.E.FC",
+	"CreatedByURL": "",
+	"DocsURL": "https://docs.google.com/document/d/12n4AgMm8Ff_lQhAuk-5ab6luH7mKhKtDpayEhrRY42w/edit?usp=sharing",
+	"MarketplaceURL": "com.epicgames.launcher:,//ue/marketplace/product/7874f269eba8406aacbef73fc504c529",
+	"SupportURL": "",
+	"CanContainContent": true,
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": false,
+	"Installed": false,
+	"EngineVersion": "5.6.0",
+	"Modules": [
+		{
+			"Name": "UIForGAS",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"PlatformAllowList": [
+				"Win64",
+				"IOS",
+				"Mac",
+				"Android"
+			]
+		}
+	],
+	"Plugins": [
+		{
+			"Name": "CommonUI",
+			"Enabled": true
+		},
+		{
+			"Name": "ModelViewViewModel",
+			"Enabled": true
+		},
+		{
+			"Name": "GameplayAbilities",
+			"Enabled": true
+		}
+	]
+}

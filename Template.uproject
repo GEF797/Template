@@ -1,0 +1,47 @@
+{
+	"FileVersion": 3,
+	"EngineAssociation": "5.6",
+	"Category": "",
+	"Description": "",
+	"Modules": [
+		{
+			"Name": "Template",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		}
+	],
+	"Plugins": [
+		{
+			"Name": "ModelingToolsEditorMode",
+			"Enabled": true,
+			"TargetAllowList": [
+				"Editor"
+			]
+		},
+		{
+			"Name": "RPGCore",
+			"Enabled": true
+		},
+		{
+			"Name": "RPGInventorySystem",
+			"Enabled": true,
+			"MarketplaceURL": "//ue/marketplace/product/73038d0dce6f4f52ad9c34d35022c9a6"
+		},
+		{
+			"Name": "ARPG",
+			"Enabled": true
+		},
+		{
+			"Name": "PhysicsControl",
+			"Enabled": true
+		},
+		{
+			"Name": "AnimatorKit",
+			"Enabled": true
+		},
+		{
+			"Name": "ARPGGame",
+			"Enabled": true
+		}
+	]
+}

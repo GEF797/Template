@@ -40,7 +40,6 @@
 *.sdf
 *.VC.db
 *.VC.opendb
-.vsconfig
 
 # Precompiled Assets
 SourceArt/**/*.png
@@ -48,7 +47,7 @@ SourceArt/**/*.tga
 
 # Binary Files
 Binaries/*
-Plugins/**/Binaries/*
+Plugins/*/Binaries/*
 
 # Builds
 Build/*
@@ -69,7 +68,40 @@ Saved/*
 
 # Compiled source files for the engine to use
 Intermediate/*
-Plugins/**/Intermediate/*
+Plugins/*/Intermediate/*
 
 # Cache files for the editor to use
 DerivedDataCache/*
+
+Content/*
+Source/*
+Plugins/GameFeatures/RPGCore/Intermediate/
+Plugins/GameFeatures/ShooterMaps/
+Plugins/AnimRetargetMagic
+Plugins/ModularGameplayActors/
+Plugins/PocketWorlds/
+Plugins/UIExtension/
+Plugins/GameSettings/
+Plugins/GameSubtitles/
+Plugins/LyraExampleContent/
+packages/
+Platforms/
+Plugins/CommonGame
+Plugins/AsyncMixin
+Plugins/RPGAssets
+Plugins/Assets
+Plugins/CommonUser
+Plugins/CommonLoadingScreen
+Plugins/NIS
+Plugins/StreamlineDeepDVC
+Plugins/DLSSMoviePipelineSupport
+Plugins/DLSS
+Plugins/Streamline
+Plugins/RPGInventorySystem
+Plugins/AdvancedGASSystem
+Plugins/GameFeatures/*/Intermediate
+Plugins/GameFeatures/ARPGGame
+Plugins/GameplayMessageRouter/
+Plugins/ModuleSkin
+Plugins/GeneralSystemSetting
+Plugins/DialogStateTree

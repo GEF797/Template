@@ -1,0 +1,59 @@
+{
+	"FileVersion": 3,
+	"Version": 3,
+	"VersionName": "1.1.0",
+	"FriendlyName": "QuestFramework",
+	"Description": "A coding framework to implement quests and custom editor tools to create quests in a node-based editor.",
+	"Category": "Other",
+	"CreatedBy": "Fullstag Interactive",
+	"CreatedByURL": "",
+	"DocsURL": "",
+	"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/f90529ae554f4f299c418ca72cb1f2fe",
+	"SupportURL": "",
+	"CanContainContent": true,
+	"Installed": true,
+	"Modules": [
+		{
+			"Name": "QuestFramework",
+			"Type": "Runtime",
+			"LoadingPhase": "PreDefault",
+			"PlatformAllowList": [
+				"Win64"
+			]
+		},
+		{
+			"Name": "QuestFrameworkEditor",
+			"Type": "UncookedOnly",
+			"LoadingPhase": "PreDefault",
+			"PlatformAllowList": [
+				"Win64"
+			],
+			"AdditionalDependencies": [
+				"QuestFramework"
+			]
+		},
+		{
+			"Name": "QuestFrameworkExtension",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"PlatformAllowList": [
+				"Win64"
+			],
+			"AdditionalDependencies": [
+				"QuestFramework"
+			]
+		}
+	],
+	"Plugins": [
+		{
+			"Name": "ModelViewViewModel",
+			"Enabled": true
+		},
+		{
+			"Name": "RPGInventorySystem",
+			"Enabled": true
+		}
+	],
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": false
+}

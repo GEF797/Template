@@ -1,0 +1,68 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "ARPGUI",
+	"Description": "",
+	"Category": "Game Features",
+	"CreatedBy": "",
+	"CreatedByURL": "",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"EnabledByDefault": true,
+	"CanContainContent": true,
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": false,
+	"Installed": false,
+	"Modules": [
+		{
+			"Name": "ARPGUIRuntime",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"AdditionalDependencies": [
+				"UMG"
+			]
+		}
+	],
+	"ExplicitlyLoaded": true,
+	"BuiltInInitialFeatureState": "Registered",
+	"Plugins": [
+		{
+			"Name": "RPGCore",
+			"Enabled": true
+		},
+		{
+			"Name": "ARPG",
+			"Enabled": true
+		},
+		{
+			"Name": "AdvancedGASSystem",
+			"Enabled": true
+		},
+		{
+			"Name": "RPGInventorySystem",
+			"Enabled": true
+		},
+		{
+			"Name": "RPGAssets",
+			"Enabled": true
+		},
+		{
+			"Name": "UIForGAS",
+			"Enabled": true
+		},
+		{
+			"Name": "QuestFramework",
+			"Enabled": true
+		},
+		{
+			"Name": "DialogStateTree",
+			"Enabled": true
+		},
+		{
+			"Name": "GeneralSystemSetting",
+			"Enabled": true
+		}
+	]
+}
