@@ -24,7 +24,6 @@
 			"LoadingPhase": "Default"
 		}
 	],
-
 	"Plugins": [
 		{
 			"Name": "AdvancedGASSystem",
@@ -56,6 +55,10 @@
 		},
 		{
 			"Name": "ModuleSkin",
+			"Enabled": true
+		},
+		{
+			"Name": "UIForGAS",
 			"Enabled": true
 		}
 	]
