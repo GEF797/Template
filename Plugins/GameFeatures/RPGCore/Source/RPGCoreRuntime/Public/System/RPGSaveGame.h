@@ -22,10 +22,10 @@ struct FAbility
 public:
 	FAbility() {  }
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Save)
-	TObjectPtr<UAbilityDefinition> Ability;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame, Category = Save)
+	TSoftObjectPtr<UAbilityDefinition> Ability;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Save)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame, Category = Save)
 	int32 Level = -1;
 };
 
@@ -38,13 +38,13 @@ struct FInventoryItem
 public:
 	FInventoryItem() {  }
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Save)
-	TObjectPtr<URPGInventoryItem> Item;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame, Category = Save)
+	TSoftObjectPtr<URPGInventoryItem> Item;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Save)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame, Category = Save)
 	int32 Count=0;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Save)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame, Category = Save)
 	int32 Index=-1;
 };
 
@@ -56,69 +56,69 @@ struct FEquipment
 public:
 	FEquipment() {  }
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Save)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite,SaveGame, Category = Save)
 	TSoftObjectPtr<URPGInventoryItem> Equipment;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Save, Meta = (Categories = "Gameplay.EquipmentSlot"))
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame, Category = Save, Meta = (Categories = "Gameplay.EquipmentSlot"))
 	FGameplayTag SlotType;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Save)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame, Category = Save)
 	FGameplayTagContainer AvailableTypes;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Save, Meta = (Categories = "Gameplay.EquipmentSlot.Weapon"))
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame, Category = Save, Meta = (Categories = "Gameplay.EquipmentSlot.Weapon"))
 	bool Activate=false;
 };
 
-USTRUCT(Blueprintable)
-struct FHeroData
-{
-
-	GENERATED_BODY()
-
-public:
-	FHeroData() { TeamId = FGenericTeamId(); }
-
-
-
-	UPROPERTY(EditAnywhere,BlueprintReadWrite, Category = Save)
-	TObjectPtr<URPGPawnData> Definition;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Save)
-	int32 Level=1;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Save)
-	  FTransform Position;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Save)
-		TArray<FEquipment> EquipmentEntries;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Save)
-	FGameplayTag CurrentSlot;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Save)
-	float Health=0.0f;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Save)
-	float Mana = 0.0f;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Save)
-	float EP = 0.0f;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Save)
-		float EXP = 0.0f;
-
-		UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Save)
-		float AbilityPoints = 0.0f;
-
-		UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Save)
-		float CostAbilityPoints = 0.0f;
-
-		UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Save)
-		TArray<FAbility> Abilities ;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Save)
-		FGenericTeamId TeamId;
-};
+//USTRUCT(Blueprintable)
+//struct FHeroData
+//{
+//
+//	GENERATED_BODY()
+//
+//public:
+//	FHeroData() { TeamId = FGenericTeamId(); }
+//
+//
+//
+//	UPROPERTY(EditAnywhere,BlueprintReadWrite, Category = Save)
+//	TObjectPtr<URPGPawnData> Definition;
+//
+//	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Save)
+//	int32 Level=1;
+//
+//	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Save)
+//	  FTransform Position;
+//
+//	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Save)
+//		TArray<FEquipment> EquipmentEntries;
+//
+//	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Save)
+//	FGameplayTag CurrentSlot;
+//
+//	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Save)
+//	float Health=0.0f;
+//
+//	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Save)
+//	float Mana = 0.0f;
+//
+//	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Save)
+//	float EP = 0.0f;
+//
+//	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Save)
+//		float EXP = 0.0f;
+//
+//		UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Save)
+//		float AbilityPoints = 0.0f;
+//
+//		UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Save)
+//		float CostAbilityPoints = 0.0f;
+//
+//		UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Save)
+//		TArray<FAbility> Abilities ;
+//
+//	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Save)
+//		FGenericTeamId TeamId;
+//};
 
 /**
  * 
@@ -133,14 +133,14 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Save)
 	TSoftObjectPtr<UWorld> Level;
 
-		UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Save)
-			TArray<FInventoryItem> InventoryItemList;
+		//UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Save)
+		//	TArray<FInventoryItem> InventoryItemList;
 
-		UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Save)
-			int32 Money;
+		//UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Save)
+		//	int32 Money;
 
-	    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Save)
-		TArray<FHeroData> Heros;
+	 //   UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Save)
+		//TArray<FHeroData> Heros;
 
 		UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Save)
 			FDateTime Time;
@@ -148,8 +148,8 @@ public:
 		UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Save)
 			float GameTime;
 
-		UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Save)
-			FGenericTeamId TeamId;
+		//UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Save)
+		//	FGenericTeamId TeamId;
 
 			//Save level soft references
 		UFUNCTION(BlueprintCallable, BlueprintPure = false, BlueprintAuthorityOnly, Category = Save)

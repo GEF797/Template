@@ -60,6 +60,10 @@
 		{
 			"Name": "UIForGAS",
 			"Enabled": true
+		},
+		{
+			"Name": "GeneralSystemSetting",
+			"Enabled": true
 		}
 	]
 }
