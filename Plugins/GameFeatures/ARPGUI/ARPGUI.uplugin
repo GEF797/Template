@@ -53,10 +53,6 @@
 			"Enabled": true
 		},
 		{
-			"Name": "QuestFramework",
-			"Enabled": true
-		},
-		{
 			"Name": "DialogStateTree",
 			"Enabled": true
 		},
