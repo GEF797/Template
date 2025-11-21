@@ -128,7 +128,7 @@ void UGameFeatureAction_AddWidgets::HandleActorExtension(AActor* Actor, FName Ev
 	{
 		RemoveWidgets(Actor, ActiveData);
 	}
-	else if ((EventName == "AddWidgets"))
+	else if (/*(EventName == UGameFrameworkComponentManager::NAME_ExtensionAdded) || */(EventName == "AddWidgets"))
 	{
 		AddWidgets(Actor, ActiveData);
 	}

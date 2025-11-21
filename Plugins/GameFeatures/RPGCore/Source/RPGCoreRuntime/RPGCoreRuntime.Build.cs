@@ -38,6 +38,7 @@ public class RPGCoreRuntime : ModuleRules
 				 "CommonUI",
                  "GameFeatures",
                  "UIExtension",
+                 "GeneralSystemSetting",
                  "UMG",
                  "DeveloperSettings",
                  "ModularGameplay",
