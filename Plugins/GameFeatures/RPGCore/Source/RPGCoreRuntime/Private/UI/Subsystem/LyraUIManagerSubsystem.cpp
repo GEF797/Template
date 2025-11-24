@@ -30,6 +30,22 @@ void ULyraUIManagerSubsystem::Deinitialize()
 	FTSTicker::GetCoreTicker().RemoveTicker(TickHandle);
 }
 
+void ULyraUIManagerSubsystem::RebuildUI()
+{
+	for ( ULocalPlayer* LocalPlayer : GetGameInstance()->GetLocalPlayers())
+	{
+		if (UCommonLocalPlayer* CommonLocalPlayer=Cast<UCommonLocalPlayer>(LocalPlayer))
+		{
+			//NotifyPlayerRemoved(CommonLocalPlayer);
+			NotifyPlayerDestroyed(CommonLocalPlayer);
+			NotifyPlayerAdded(CommonLocalPlayer);
+			
+		}
+		
+	}
+	
+}
+
 bool ULyraUIManagerSubsystem::Tick(float DeltaTime)
 {
 	SyncRootLayoutVisibilityToShowHUD();

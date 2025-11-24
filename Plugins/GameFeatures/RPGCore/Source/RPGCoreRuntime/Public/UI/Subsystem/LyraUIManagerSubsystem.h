@@ -22,6 +22,9 @@ public:
 	virtual void Initialize(FSubsystemCollectionBase& Collection) override;
 	virtual void Deinitialize() override;
 
+	UFUNCTION(BlueprintCallable)
+	void RebuildUI();
+
 private:
 	bool Tick(float DeltaTime);
 	void SyncRootLayoutVisibilityToShowHUD();
