@@ -24,10 +24,10 @@ public:
 	FAbility() {  }
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame, Category = Save)
-	TSoftObjectPtr<UAbilityDefinition> Ability;
+	FPrimaryAssetId Ability;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame, Category = Save)
-	int32 Level = -1;
+	int32 Level = 0;
 };
 
 

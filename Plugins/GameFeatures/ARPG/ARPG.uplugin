@@ -48,6 +48,10 @@
 		{
 			"Name": "ModuleSkin",
 			"Enabled": true
+		},
+		{
+			"Name": "UIForGAS",
+			"Enabled": true
 		}
 	]
 }
