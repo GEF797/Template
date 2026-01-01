@@ -82,18 +82,18 @@ class  URPGSaveGame : public USaveGame
 
 public:	
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Save)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite,SaveGame, Category = Save)
 	TSoftObjectPtr<UWorld> Level;
 
 
 
-		UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Save)
+		UPROPERTY(EditAnywhere, BlueprintReadWrite,SaveGame, Category = Save)
 			FDateTime Time;
 
-		UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Save)
+		UPROPERTY(EditAnywhere, BlueprintReadWrite,SaveGame, Category = Save)
 			float GameTime;
 
-			UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Save)
+			UPROPERTY(EditAnywhere, BlueprintReadWrite,SaveGame, Category = Save)
 			TArray<FSaveData> SaveData;
 
 			//Save level soft references
