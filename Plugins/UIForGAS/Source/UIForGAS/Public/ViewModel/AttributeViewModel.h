@@ -45,8 +45,6 @@ public:
 		}
 	}
 
-	//	UFUNCTION(BlueprintCallable, Category = "UIForGAS")
-	//void MarkAsGarbage(){ this->MarkAsGarbage(); };
 
 	//Set AbilitySystemComponent And Attribute
 	UFUNCTION(BlueprintCallable, Category = "UIForGAS")
@@ -64,7 +62,8 @@ public:
 		if (!ASC)
 		{
 			UE_LOG(LogTemp, Warning, TEXT("ASC is nullptr"));
-		  return;
+
+		    return;
 		}
 		
 			Handle = ASC->GetGameplayAttributeValueChangeDelegate(Attribute).AddUObject(this, &ThisClass::HandleChanged);

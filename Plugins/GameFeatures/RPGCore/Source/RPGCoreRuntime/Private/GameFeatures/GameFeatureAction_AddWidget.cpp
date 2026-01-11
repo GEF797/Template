@@ -131,6 +131,8 @@ void UGameFeatureAction_AddWidgets::HandleActorExtension(AActor* Actor, FName Ev
 	else if (/*(EventName == UGameFrameworkComponentManager::NAME_ExtensionAdded) || */(EventName == "AddWidgets"))
 	{
 		AddWidgets(Actor, ActiveData);
+
+		UE_LOG(LogTemp, Warning, TEXT("%s: AddWidgets"), *Actor->GetName());
 	}
 }
 
@@ -160,6 +162,8 @@ void UGameFeatureAction_AddWidgets::AddWidgets(AActor* Actor, FPerContextData& A
 		{
 			ActorData.ExtensionHandles.Add(ExtensionSubsystem->RegisterExtensionAsWidgetForContext(Entry.SlotID, LocalPlayer, Entry.WidgetClass.Get(), -1));
 		}
+
+		
 	}
 }
 
