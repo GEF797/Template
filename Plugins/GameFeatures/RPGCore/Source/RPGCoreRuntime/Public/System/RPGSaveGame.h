@@ -98,44 +98,7 @@ public:
 };
 
 
-USTRUCT(Blueprintable)
-struct FInventoryItem
-{
-	GENERATED_BODY()
 
-public:
-	FInventoryItem() {  }
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame, Category = Save)
-	FPrimaryAssetId Item;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame, Category = Save)
-	int32 Count=0;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame, Category = Save)
-	int32 Index=-1;
-};
-
-USTRUCT(Blueprintable)
-struct FEquipment
-{
-	GENERATED_BODY()
-
-public:
-	FEquipment() {  }
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite,SaveGame, Category = Save)
-	FPrimaryAssetId Equipment;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame, Category = Save, Meta = (Categories = "Gameplay.EquipmentSlot"))
-	FGameplayTag SlotType;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame, Category = Save)
-	FGameplayTagContainer AvailableTypes;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame, Category = Save, Meta = (Categories = "Gameplay.EquipmentSlot.Weapon"))
-	bool Activate=false;
-};
 
 
 
