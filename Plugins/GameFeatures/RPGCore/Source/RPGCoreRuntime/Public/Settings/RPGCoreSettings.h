@@ -14,6 +14,30 @@
 class URPGSaveGame;
 class URPGPawnData;
 
+ 
+USTRUCT(BlueprintType)
+struct FLevelData : public FTableRowBase
+{
+	GENERATED_BODY()
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	FText Displayname;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	TSoftObjectPtr<UTexture2D> Image;
+
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	TArray<FString> GameFeatures;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, meta = (AllowedClasses = "/Script/Engine.World"))
+	FPrimaryAssetId Map;
+
+
+
+};
+
+
 /**
  * 
  */
