@@ -76,6 +76,10 @@
 		{
 			"Name": "MassAI",
 			"Enabled": true
+		},
+		{
+			"Name": "DialogStateTree",
+			"Enabled": true
 		}
 	]
 }

@@ -52,6 +52,10 @@
 		{
 			"Name": "UIForGAS",
 			"Enabled": true
+		},
+		{
+			"Name": "DialogStateTree",
+			"Enabled": true
 		}
 	]
 }
