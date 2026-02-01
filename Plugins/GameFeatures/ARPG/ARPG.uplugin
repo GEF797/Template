@@ -42,10 +42,6 @@
 			"Enabled": true
 		},
 		{
-			"Name": "RPGAssets",
-			"Enabled": true
-		},
-		{
 			"Name": "ModuleSkin",
 			"Enabled": true
 		},

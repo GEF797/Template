@@ -38,10 +38,6 @@
 		{
 			"Name": "AnimatorKit",
 			"Enabled": true
-		},
-		{
-			"Name": "ARPGGame",
-			"Enabled": true
 		}
 	]
 }
