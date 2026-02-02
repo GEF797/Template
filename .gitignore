@@ -88,8 +88,6 @@ packages/
 Platforms/
 Plugins/CommonGame
 Plugins/AsyncMixin
-Plugins/RPGAssets
-Plugins/Assets
 Plugins/CommonUser
 Plugins/CommonLoadingScreen
 Plugins/NIS
@@ -104,4 +102,4 @@ Plugins/GameFeatures/ARPGGame
 Plugins/GameplayMessageRouter/
 Plugins/ModuleSkin
 Plugins/GeneralSystemSetting
-Plugins/DialogStateTree
+
