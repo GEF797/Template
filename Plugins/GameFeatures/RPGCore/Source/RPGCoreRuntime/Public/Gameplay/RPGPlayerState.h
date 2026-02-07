@@ -32,11 +32,6 @@ public:
 	URPGAbilitySystemComponent* GetRPGAbilitySystemComponent() const { return AbilitySystemComponent; }
 	virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;
 
-	//template <class T>
-	//const T* GetPawnData() const { return Cast<T>(PawnData); }
-
-	//void SetPawnData(const URPGPawnData* InPawnData);
-
 	//~AActor interface
 	virtual void PreInitializeComponents() override;
 	virtual void PostInitializeComponents() override;
@@ -59,18 +54,7 @@ protected:
 
 
 private:
-	//void OnExperienceLoaded(const ULyraExperienceDefinition* CurrentExperience);
 
-//protected:
-//	UFUNCTION()
-//	void OnRep_PawnData();
-//
-//protected:
-//
-//	UPROPERTY(ReplicatedUsing = OnRep_PawnData)
-//	TObjectPtr<const URPGPawnData> PawnData;
-//
-//private:
 
 	// The ability system component sub-object used by player characters.
 	UPROPERTY(VisibleAnywhere, Category = "RPG|PlayerState")

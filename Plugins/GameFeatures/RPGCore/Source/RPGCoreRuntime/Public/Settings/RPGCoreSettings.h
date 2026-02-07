@@ -53,5 +53,9 @@ public:
 	UFUNCTION(BlueprintPure, Category = "RPG|Config")
 	static const URPGCoreSettings* GetRPGCoreSettingsInstance();
 
+	UPROPERTY(Config, BlueprintReadOnly)
+	float BasePlayerSpeed = 750.0f;
 
+	UPROPERTY(Config, BlueprintReadOnly)
+	float BaseEnemySpeed = 600.0f;
 };
