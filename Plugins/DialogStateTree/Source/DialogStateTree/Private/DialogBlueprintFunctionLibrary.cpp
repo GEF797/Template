@@ -107,5 +107,9 @@ bool UDialogBlueprintFunctionLibrary::GetGetNextSibling(FStateTreeStateHandle St
 			}
 		}
 	}
+	else
+	{
+		GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Blue, "StateTree Is Null");;
+	}
 	return false;
 }
