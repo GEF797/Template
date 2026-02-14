@@ -76,20 +76,8 @@ DerivedDataCache/*
 Content/*
 Source/*
 Plugins/GameFeatures/RPGCore/Intermediate/
-Plugins/GameFeatures/ShooterMaps/
-Plugins/AnimRetargetMagic
-Plugins/ModularGameplayActors/
-Plugins/PocketWorlds/
-Plugins/UIExtension/
-Plugins/GameSettings/
-Plugins/GameSubtitles/
-Plugins/LyraExampleContent/
 packages/
 Platforms/
-Plugins/CommonGame
-Plugins/AsyncMixin
-Plugins/CommonUser
-Plugins/CommonLoadingScreen
 Plugins/NIS
 Plugins/StreamlineDeepDVC
 Plugins/DLSSMoviePipelineSupport
@@ -98,8 +86,6 @@ Plugins/Streamline
 Plugins/RPGInventorySystem
 Plugins/AdvancedGASSystem
 Plugins/GameFeatures/*/Intermediate
-Plugins/GameFeatures/ARPGGame
-Plugins/GameplayMessageRouter/
 Plugins/ModuleSkin
 Plugins/GeneralSystemSetting
 
