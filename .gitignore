@@ -86,5 +86,6 @@ Plugins/RPGInventorySystem
 Plugins/AdvancedGASSystem
 Plugins/GameFeatures/*/Intermediate
 Plugins/ModuleSkin
+Plugins/UIForGAS
 Plugins/GeneralSystemSetting
 
