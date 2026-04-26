@@ -59,6 +59,10 @@
 		{
 			"Name": "GeneralSystemSetting",
 			"Enabled": true
+		},
+		{
+			"Name": "SkillTree",
+			"Enabled": true
 		}
 	]
 }

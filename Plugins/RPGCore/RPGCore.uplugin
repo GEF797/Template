@@ -73,6 +73,11 @@
 		{
 			"Name": "DialogStateTree",
 			"Enabled": true
+		},
+		{
+			"Name": "SkillTree",
+			"Enabled": true
 		}
-	]
+	],
+	"IsExperimentalVersion": false
 }

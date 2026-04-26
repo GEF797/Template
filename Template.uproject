@@ -47,6 +47,22 @@
 			"Name": "DragonIKPlugin",
 			"Enabled": true,
 			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/3f3985e9eb40414aaabf645791fa4916"
+		},
+		{
+			"Name": "SideScroller",
+			"Enabled": true
+		},
+		{
+			"Name": "Titan",
+			"Enabled": true
+		},
+		{
+			"Name": "MetaHumanSDK",
+			"Enabled": false
+		},
+		{
+			"Name": "EOSShared",
+			"Enabled": true
 		}
 	]
 }

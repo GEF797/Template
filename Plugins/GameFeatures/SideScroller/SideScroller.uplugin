@@ -1,0 +1,49 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "SideScroller",
+	"Description": "",
+	"Category": "Game Features",
+	"CreatedBy": "",
+	"CreatedByURL": "",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"EnabledByDefault": false,
+	"CanContainContent": true,
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": false,
+	"Installed": false,
+	"ExplicitlyLoaded": true,
+	"BuiltInInitialFeatureState": "Registered",
+	"Modules": [
+		{
+			"Name": "SideScrollerRuntime",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		}
+	],
+	"Plugins": [
+		{
+			"Name": "RPGCore",
+			"Enabled": true
+		},
+		{
+			"Name": "AdvancedGASSystem",
+			"Enabled": true
+		},
+		{
+			"Name": "ARPG",
+			"Enabled": true
+		},
+		{
+			"Name": "ARPGUI",
+			"Enabled": true
+		},
+		{
+			"Name": "Assets",
+			"Enabled": true
+		}
+	]
+}
