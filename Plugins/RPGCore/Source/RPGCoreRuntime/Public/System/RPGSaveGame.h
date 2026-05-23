@@ -124,7 +124,7 @@ public:
 			float GameTime;
 
 			UPROPERTY(EditAnywhere, BlueprintReadWrite,SaveGame, Category = Save)
-			TArray<FSaveData> SaveData;
+			TArray<FGeneralSaveData> SaveData;
 
 			//Save level soft references
 		UFUNCTION(BlueprintCallable, BlueprintPure = false, BlueprintAuthorityOnly, Category = Save)

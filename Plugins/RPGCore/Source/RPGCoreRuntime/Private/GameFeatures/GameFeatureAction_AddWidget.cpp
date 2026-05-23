@@ -138,7 +138,11 @@ void UGameFeatureAction_AddWidgets::HandleActorExtension(AActor* Actor, FName Ev
 
 void UGameFeatureAction_AddWidgets::AddWidgets(AActor* Actor, FPerContextData& ActiveData)
 {
-	ALyraHUD* HUD = CastChecked<ALyraHUD>(Actor);
+	if (bIsAdd)
+	{
+		return;
+	}
+	AHUD* HUD = CastChecked<AHUD>(Actor);
 
 	if (!HUD->GetOwningPlayerController())
 	{
@@ -165,11 +169,12 @@ void UGameFeatureAction_AddWidgets::AddWidgets(AActor* Actor, FPerContextData& A
 
 		
 	}
+	bIsAdd = true;
 }
 
 void UGameFeatureAction_AddWidgets::RemoveWidgets(AActor* Actor, FPerContextData& ActiveData)
 {
-	ALyraHUD* HUD = CastChecked<ALyraHUD>(Actor);
+	AHUD* HUD = CastChecked<AHUD>(Actor);
 
 	// Only unregister if this is the same HUD actor that was registered, there can be multiple active at once on the client
 	FPerActorData* ActorData = ActiveData.ActorData.Find(HUD);
@@ -190,6 +195,8 @@ void UGameFeatureAction_AddWidgets::RemoveWidgets(AActor* Actor, FPerContextData
 		}
 		ActiveData.ActorData.Remove(HUD);
 	}
+
+	bIsAdd = false;
 }
 
 #undef LOCTEXT_NAMESPACE
