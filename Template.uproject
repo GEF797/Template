@@ -63,6 +63,10 @@
 		{
 			"Name": "EOSShared",
 			"Enabled": true
+		},
+		{
+			"Name": "BlueLine",
+			"Enabled": false
 		}
 	]
 }
