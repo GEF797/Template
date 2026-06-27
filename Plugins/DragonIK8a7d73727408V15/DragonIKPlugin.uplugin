@@ -10,7 +10,7 @@
 	"DocsURL": "https://dragonik.eternalmonke.com/",
 	"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/3f3985e9eb40414aaabf645791fa4916",
 	"SupportURL": "contact@eternalmonke.com",
-	"EngineVersion": "5.7.0",
+	"EngineVersion": "5.8.0",
 	"CanContainContent": true,
 	"Installed": true,
 	"Modules": [
