@@ -75,6 +75,10 @@
 		{
 			"Name": "MCPClientToolset",
 			"Enabled": true
+		},
+		{
+			"Name": "ControlRigDynamics",
+			"Enabled": true
 		}
 	]
 }
