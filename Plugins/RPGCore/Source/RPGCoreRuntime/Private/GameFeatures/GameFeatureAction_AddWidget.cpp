@@ -3,6 +3,9 @@
 #include "GameFeatures/GameFeatureAction_AddWidget.h"
 #include "Components/GameFrameworkComponentManager.h"
 #include "Engine/GameInstance.h"
+#include "Engine/LocalPlayer.h"
+#include "Engine/World.h"
+#include "GameFramework/PlayerController.h"
 #include "GameFeaturesSubsystemSettings.h"
 #include "CommonUIExtensions.h"
 #include "UI/LyraHUD.h"
@@ -22,16 +25,24 @@ void UGameFeatureAction_AddWidgets::OnGameFeatureDeactivating(FGameFeatureDeacti
 {
 	Super::OnGameFeatureDeactivating(Context);
 
-	FPerContextData* ActiveData = ContextData.Find(Context);
-	if ensure(ActiveData)
+	// Remove the context first so unregister callbacks cannot recreate its UI state.
+	FPerContextData ActiveData;
+	if (ContextData.RemoveAndCopyValue(Context, ActiveData))
 	{
-		Reset(*ActiveData);
+		Reset(ActiveData);
 	}
 }
 
 #if WITH_EDITORONLY_DATA
 void UGameFeatureAction_AddWidgets::AddAdditionalAssetBundleData(FAssetBundleData& AssetBundleData)
 {
+	Super::AddAdditionalAssetBundleData(AssetBundleData);
+
+	for (const FLyraHUDLayoutRequest& Entry : Layout)
+	{
+		AssetBundleData.AddBundleAsset(UGameFeaturesSubsystemSettings::LoadStateClient, Entry.LayoutClass.ToSoftObjectPath().GetAssetPath());
+	}
+
 	for (const FLyraHUDElementEntry& Entry : Widgets)
 	{
 		AssetBundleData.AddBundleAsset(UGameFeaturesSubsystemSettings::LoadStateClient, Entry.WidgetClass.ToSoftObjectPath().GetAssetPath());
@@ -111,38 +122,61 @@ void UGameFeatureAction_AddWidgets::Reset(FPerContextData& ActiveData)
 {
 	ActiveData.ComponentRequests.Empty();
 
-	for (TPair<FObjectKey, FPerActorData>& Pair : ActiveData.ActorData)
+	for (TPair<FObjectKey, TSharedPtr<FPerActorData>>& Pair : ActiveData.ActorData)
 	{
-		for (FUIExtensionHandle& Handle : Pair.Value.ExtensionHandles)
-		{
-			Handle.Unregister();
-		}
+		Pair.Value->Reset();
 	}
 	ActiveData.ActorData.Empty();
 }
 
+void UGameFeatureAction_AddWidgets::FPerActorData::Reset()
+{
+	bIsRemoved = true;
+
+	// Detach the handles before callbacks can request another cleanup.
+	TArray<TWeakObjectPtr<UCommonActivatableWidget>> LayoutsToRemove = MoveTemp(LayoutsAdded);
+	TArray<FUIExtensionHandle> ExtensionsToRemove = MoveTemp(ExtensionHandles);
+
+	for (const TWeakObjectPtr<UCommonActivatableWidget>& AddedLayout : LayoutsToRemove)
+	{
+		if (UCommonActivatableWidget* Widget = AddedLayout.Get())
+		{
+			// Also remove inactive layouts underneath another widget in the layer stack.
+			UCommonUIExtensions::PopContentFromLayer(Widget);
+		}
+	}
+
+	for (FUIExtensionHandle& Handle : ExtensionsToRemove)
+	{
+		Handle.Unregister();
+	}
+}
+
 void UGameFeatureAction_AddWidgets::HandleActorExtension(AActor* Actor, FName EventName, FGameFeatureStateChangeContext ChangeContext)
 {
-	FPerContextData& ActiveData = ContextData.FindOrAdd(ChangeContext);
+	FPerContextData* ActiveData = ContextData.Find(ChangeContext);
+	if (!ActiveData)
+	{
+		return;
+	}
+
 	if ((EventName == UGameFrameworkComponentManager::NAME_ExtensionRemoved) || (EventName == UGameFrameworkComponentManager::NAME_ReceiverRemoved))
 	{
-		RemoveWidgets(Actor, ActiveData);
+		RemoveWidgets(Actor, *ActiveData);
 	}
-	else if (/*(EventName == UGameFrameworkComponentManager::NAME_ExtensionAdded) || */(EventName == "AddWidgets"))
+	else if (EventName == TEXT("AddWidgets"))
 	{
-		AddWidgets(Actor, ActiveData);
-
-		UE_LOG(LogTemp, Warning, TEXT("%s: AddWidgets"), *Actor->GetName());
+		AddWidgets(Actor, *ActiveData);
 	}
 }
 
 void UGameFeatureAction_AddWidgets::AddWidgets(AActor* Actor, FPerContextData& ActiveData)
 {
-	if (bIsAdd)
+	AHUD* HUD = Cast<AHUD>(Actor);
+	if (!IsValid(HUD))
 	{
 		return;
 	}
-	AHUD* HUD = CastChecked<AHUD>(Actor);
 
 	if (!HUD->GetOwningPlayerController())
 	{
@@ -151,52 +185,80 @@ void UGameFeatureAction_AddWidgets::AddWidgets(AActor* Actor, FPerContextData& A
 
 	if (ULocalPlayer* LocalPlayer = Cast<ULocalPlayer>(HUD->GetOwningPlayerController()->Player))
 	{
-		FPerActorData& ActorData = ActiveData.ActorData.FindOrAdd(HUD);
+		UWorld* World = HUD->GetWorld();
+		UUIExtensionSubsystem* ExtensionSubsystem = World ? World->GetSubsystem<UUIExtensionSubsystem>() : nullptr;
+		if (!Widgets.IsEmpty() && !ExtensionSubsystem)
+		{
+			return;
+		}
+
+		TSharedPtr<FPerActorData>& ActorDataSlot = ActiveData.ActorData.FindOrAdd(HUD);
+		if (!ActorDataSlot)
+		{
+			ActorDataSlot = MakeShared<FPerActorData>();
+		}
+
+		// Widget callbacks can remove this HUD or deactivate the feature while adding UI.
+		const TSharedPtr<FPerActorData> ActorData = ActorDataSlot;
+		if (ActorData->bIsAdding || !ActorData->LayoutsAdded.IsEmpty() || !ActorData->ExtensionHandles.IsEmpty())
+		{
+			return;
+		}
+		TGuardValue<bool> AddingGuard(ActorData->bIsAdding, true);
 
 		for (const FLyraHUDLayoutRequest& Entry : Layout)
 		{
 			if (TSubclassOf<UCommonActivatableWidget> ConcreteWidgetClass = Entry.LayoutClass.Get())
 			{
-				ActorData.LayoutsAdded.Add(UCommonUIExtensions::PushContentToLayer_ForPlayer(LocalPlayer, Entry.LayerID, ConcreteWidgetClass));
+				UCommonActivatableWidget* AddedLayout = UCommonUIExtensions::PushContentToLayer_ForPlayer(LocalPlayer, Entry.LayerID, ConcreteWidgetClass);
+				if (ActorData->bIsRemoved)
+				{
+					if (AddedLayout)
+					{
+						UCommonUIExtensions::PopContentFromLayer(AddedLayout);
+					}
+					return;
+				}
+				if (AddedLayout)
+				{
+					ActorData->LayoutsAdded.Add(AddedLayout);
+				}
 			}
 		}
 
-		UUIExtensionSubsystem* ExtensionSubsystem = HUD->GetWorld()->GetSubsystem<UUIExtensionSubsystem>();
 		for (const FLyraHUDElementEntry& Entry : Widgets)
 		{
-			ActorData.ExtensionHandles.Add(ExtensionSubsystem->RegisterExtensionAsWidgetForContext(Entry.SlotID, LocalPlayer, Entry.WidgetClass.Get(), -1));
+			FUIExtensionHandle Handle = ExtensionSubsystem->RegisterExtensionAsWidgetForContext(Entry.SlotID, LocalPlayer, Entry.WidgetClass.Get(), -1);
+			if (ActorData->bIsRemoved)
+			{
+				if (Handle.IsValid())
+				{
+					Handle.Unregister();
+				}
+				return;
+			}
+			if (Handle.IsValid())
+			{
+				ActorData->ExtensionHandles.Add(Handle);
+			}
 		}
-
-		
 	}
-	bIsAdd = true;
 }
 
 void UGameFeatureAction_AddWidgets::RemoveWidgets(AActor* Actor, FPerContextData& ActiveData)
 {
-	AHUD* HUD = CastChecked<AHUD>(Actor);
-
-	// Only unregister if this is the same HUD actor that was registered, there can be multiple active at once on the client
-	FPerActorData* ActorData = ActiveData.ActorData.Find(HUD);
-
-	if (ActorData)
+	AHUD* HUD = Cast<AHUD>(Actor);
+	if (!HUD)
 	{
-		for (TWeakObjectPtr<UCommonActivatableWidget>& AddedLayout : ActorData->LayoutsAdded)
-		{
-			if (AddedLayout.IsValid())
-			{
-				AddedLayout->DeactivateWidget();
-			}
-		}
-
-		for (FUIExtensionHandle& Handle : ActorData->ExtensionHandles)
-		{
-			Handle.Unregister();
-		}
-		ActiveData.ActorData.Remove(HUD);
+		return;
 	}
 
-	bIsAdd = false;
+	// Only unregister if this is the same HUD actor that was registered, there can be multiple active at once on the client
+	TSharedPtr<FPerActorData> ActorData;
+	if (ActiveData.ActorData.RemoveAndCopyValue(HUD, ActorData))
+	{
+		ActorData->Reset();
+	}
 }
 
 #undef LOCTEXT_NAMESPACE

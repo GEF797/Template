@@ -1,10 +1,16 @@
 <Solution>
   <Configurations>
     <BuildType Name="DebugGame" />
+    <BuildType Name="DebugGame Client" />
     <BuildType Name="DebugGame Editor" />
+    <BuildType Name="DebugGame Server" />
     <BuildType Name="Development" />
+    <BuildType Name="Development Client" />
     <BuildType Name="Development Editor" />
+    <BuildType Name="Development Server" />
     <BuildType Name="Shipping" />
+    <BuildType Name="Shipping Client" />
+    <BuildType Name="Shipping Server" />
     <Platform Name="Win64" />
     <Platform Name="Win64-arm64" />
     <Platform Name="Win64-arm64ec" />
@@ -16,21 +22,383 @@
       <Build Project="false" />
     </Project>
   </Folder>
-  <Folder Name="/Games/">
+  <Folder Name="/Games/" />
+  <Folder Name="/Games/Template/">
     <Project Path="Intermediate/ProjectFiles/Template.vcxproj" Id="5c1e5535-1651-3589-bb6d-5087c4ff102a">
+      <BuildType Solution="DebugGame Client|Win64" Project="DebugGame_Client" />
+      <BuildType Solution="DebugGame Client|Win64-arm64" Project="Win64_arm64_DebugGame_Client" />
+      <BuildType Solution="DebugGame Client|Win64-arm64ec" Project="Win64_arm64ec_DebugGame_Client" />
       <BuildType Solution="DebugGame Editor|Win64" Project="DebugGame_Editor" />
       <BuildType Solution="DebugGame Editor|Win64-arm64" Project="Win64_arm64_DebugGame_Editor" />
       <BuildType Solution="DebugGame Editor|Win64-arm64ec" Project="Win64_arm64ec_DebugGame_Editor" />
+      <BuildType Solution="DebugGame Server|Win64" Project="DebugGame_Server" />
+      <BuildType Solution="DebugGame Server|Win64-arm64" Project="Win64_arm64_DebugGame_Server" />
+      <BuildType Solution="DebugGame Server|Win64-arm64ec" Project="Win64_arm64ec_DebugGame_Server" />
       <BuildType Solution="DebugGame|Win64-arm64" Project="Win64_arm64_DebugGame" />
       <BuildType Solution="DebugGame|Win64-arm64ec" Project="Win64_arm64ec_DebugGame" />
+      <BuildType Solution="Development Client|Win64" Project="Development_Client" />
+      <BuildType Solution="Development Client|Win64-arm64" Project="Win64_arm64_Development_Client" />
+      <BuildType Solution="Development Client|Win64-arm64ec" Project="Win64_arm64ec_Development_Client" />
       <BuildType Solution="Development Editor|Win64" Project="Development_Editor" />
       <BuildType Solution="Development Editor|Win64-arm64" Project="Win64_arm64_Development_Editor" />
       <BuildType Solution="Development Editor|Win64-arm64ec" Project="Win64_arm64ec_Development_Editor" />
+      <BuildType Solution="Development Server|Win64" Project="Development_Server" />
+      <BuildType Solution="Development Server|Win64-arm64" Project="Win64_arm64_Development_Server" />
+      <BuildType Solution="Development Server|Win64-arm64ec" Project="Win64_arm64ec_Development_Server" />
       <BuildType Solution="Development|Win64-arm64" Project="Win64_arm64_Development" />
       <BuildType Solution="Development|Win64-arm64ec" Project="Win64_arm64ec_Development" />
+      <BuildType Solution="Shipping Client|Win64" Project="Shipping_Client" />
+      <BuildType Solution="Shipping Client|Win64-arm64" Project="Win64_arm64_Shipping_Client" />
+      <BuildType Solution="Shipping Client|Win64-arm64ec" Project="Win64_arm64ec_Shipping_Client" />
+      <BuildType Solution="Shipping Server|Win64" Project="Shipping_Server" />
+      <BuildType Solution="Shipping Server|Win64-arm64" Project="Win64_arm64_Shipping_Server" />
+      <BuildType Solution="Shipping Server|Win64-arm64ec" Project="Win64_arm64ec_Shipping_Server" />
       <BuildType Solution="Shipping|Win64-arm64" Project="Win64_arm64_Shipping" />
       <BuildType Solution="Shipping|Win64-arm64ec" Project="Win64_arm64ec_Shipping" />
       <Platform Project="x64" />
+    </Project>
+    <Project Path="Intermediate/ProjectFiles/TemplateEOS.vcxproj" Id="10c02a99-9558-32f1-9e67-fa6081d1f33d">
+      <BuildType Solution="DebugGame Client|*" Project="Invalid" />
+      <BuildType Solution="DebugGame Editor|*" Project="Invalid" />
+      <BuildType Solution="DebugGame Server|*" Project="Invalid" />
+      <BuildType Solution="DebugGame|Win64-arm64" Project="Win64_arm64_DebugGame" />
+      <BuildType Solution="DebugGame|Win64-arm64ec" Project="Win64_arm64ec_DebugGame" />
+      <BuildType Solution="Development Client|*" Project="Invalid" />
+      <BuildType Solution="Development Editor|*" Project="Invalid" />
+      <BuildType Solution="Development Server|*" Project="Invalid" />
+      <BuildType Solution="Development|Win64-arm64" Project="Win64_arm64_Development" />
+      <BuildType Solution="Development|Win64-arm64ec" Project="Win64_arm64ec_Development" />
+      <BuildType Solution="Shipping Client|*" Project="Invalid" />
+      <BuildType Solution="Shipping Server|*" Project="Invalid" />
+      <BuildType Solution="Shipping|Win64-arm64" Project="Win64_arm64_Shipping" />
+      <BuildType Solution="Shipping|Win64-arm64ec" Project="Win64_arm64ec_Shipping" />
+      <Platform Project="x64" />
+      <Build Solution="DebugGame Client|*" Project="false" />
+      <Build Solution="DebugGame Editor|*" Project="false" />
+      <Build Solution="DebugGame Server|*" Project="false" />
+      <Build Solution="Development Client|*" Project="false" />
+      <Build Solution="Development Editor|*" Project="false" />
+      <Build Solution="Development Server|*" Project="false" />
+      <Build Solution="Shipping Client|*" Project="false" />
+      <Build Solution="Shipping Server|*" Project="false" />
+    </Project>
+    <Project Path="Intermediate/ProjectFiles/TemplateServerEOS.vcxproj" Id="d6b9478d-4601-341b-9239-89f63e7770c8">
+      <BuildType Solution="DebugGame Client|*" Project="Invalid" />
+      <BuildType Solution="DebugGame Editor|*" Project="Invalid" />
+      <BuildType Solution="DebugGame Server|Win64" Project="DebugGame_Server" />
+      <BuildType Solution="DebugGame Server|Win64-arm64" Project="Win64_arm64_DebugGame_Server" />
+      <BuildType Solution="DebugGame Server|Win64-arm64ec" Project="Win64_arm64ec_DebugGame_Server" />
+      <BuildType Solution="DebugGame|*" Project="Invalid" />
+      <BuildType Solution="Development Client|*" Project="Invalid" />
+      <BuildType Solution="Development Editor|*" Project="Invalid" />
+      <BuildType Solution="Development Server|Win64" Project="Development_Server" />
+      <BuildType Solution="Development Server|Win64-arm64" Project="Win64_arm64_Development_Server" />
+      <BuildType Solution="Development Server|Win64-arm64ec" Project="Win64_arm64ec_Development_Server" />
+      <BuildType Solution="Development|*" Project="Invalid" />
+      <BuildType Solution="Shipping Client|*" Project="Invalid" />
+      <BuildType Solution="Shipping Server|Win64" Project="Shipping_Server" />
+      <BuildType Solution="Shipping Server|Win64-arm64" Project="Win64_arm64_Shipping_Server" />
+      <BuildType Solution="Shipping Server|Win64-arm64ec" Project="Win64_arm64ec_Shipping_Server" />
+      <BuildType Solution="Shipping|*" Project="Invalid" />
+      <Platform Project="x64" />
+      <Build Solution="DebugGame Client|*" Project="false" />
+      <Build Solution="DebugGame Editor|*" Project="false" />
+      <Build Solution="DebugGame|*" Project="false" />
+      <Build Solution="Development Client|*" Project="false" />
+      <Build Solution="Development Editor|*" Project="false" />
+      <Build Solution="Development|*" Project="false" />
+      <Build Solution="Shipping Client|*" Project="false" />
+      <Build Solution="Shipping|*" Project="false" />
+    </Project>
+    <Project Path="Intermediate/ProjectFiles/TemplateServerSteam.vcxproj" Id="553d8191-9fd5-3f41-b2c7-253657663da3">
+      <BuildType Solution="DebugGame Client|*" Project="Invalid" />
+      <BuildType Solution="DebugGame Editor|*" Project="Invalid" />
+      <BuildType Solution="DebugGame Server|Win64" Project="DebugGame_Server" />
+      <BuildType Solution="DebugGame Server|Win64-arm64" Project="Win64_arm64_DebugGame_Server" />
+      <BuildType Solution="DebugGame Server|Win64-arm64ec" Project="Win64_arm64ec_DebugGame_Server" />
+      <BuildType Solution="DebugGame|*" Project="Invalid" />
+      <BuildType Solution="Development Client|*" Project="Invalid" />
+      <BuildType Solution="Development Editor|*" Project="Invalid" />
+      <BuildType Solution="Development Server|Win64" Project="Development_Server" />
+      <BuildType Solution="Development Server|Win64-arm64" Project="Win64_arm64_Development_Server" />
+      <BuildType Solution="Development Server|Win64-arm64ec" Project="Win64_arm64ec_Development_Server" />
+      <BuildType Solution="Development|*" Project="Invalid" />
+      <BuildType Solution="Shipping Client|*" Project="Invalid" />
+      <BuildType Solution="Shipping Server|Win64" Project="Shipping_Server" />
+      <BuildType Solution="Shipping Server|Win64-arm64" Project="Win64_arm64_Shipping_Server" />
+      <BuildType Solution="Shipping Server|Win64-arm64ec" Project="Win64_arm64ec_Shipping_Server" />
+      <BuildType Solution="Shipping|*" Project="Invalid" />
+      <Platform Project="x64" />
+      <Build Solution="DebugGame Client|*" Project="false" />
+      <Build Solution="DebugGame Editor|*" Project="false" />
+      <Build Solution="DebugGame|*" Project="false" />
+      <Build Solution="Development Client|*" Project="false" />
+      <Build Solution="Development Editor|*" Project="false" />
+      <Build Solution="Development|*" Project="false" />
+      <Build Solution="Shipping Client|*" Project="false" />
+      <Build Solution="Shipping|*" Project="false" />
+    </Project>
+    <Project Path="Intermediate/ProjectFiles/TemplateServerSteamEOS.vcxproj" Id="66adc2b1-64f1-3cd2-919e-d794150e1116">
+      <BuildType Solution="DebugGame Client|*" Project="Invalid" />
+      <BuildType Solution="DebugGame Editor|*" Project="Invalid" />
+      <BuildType Solution="DebugGame Server|Win64" Project="DebugGame_Server" />
+      <BuildType Solution="DebugGame Server|Win64-arm64" Project="Win64_arm64_DebugGame_Server" />
+      <BuildType Solution="DebugGame Server|Win64-arm64ec" Project="Win64_arm64ec_DebugGame_Server" />
+      <BuildType Solution="DebugGame|*" Project="Invalid" />
+      <BuildType Solution="Development Client|*" Project="Invalid" />
+      <BuildType Solution="Development Editor|*" Project="Invalid" />
+      <BuildType Solution="Development Server|Win64" Project="Development_Server" />
+      <BuildType Solution="Development Server|Win64-arm64" Project="Win64_arm64_Development_Server" />
+      <BuildType Solution="Development Server|Win64-arm64ec" Project="Win64_arm64ec_Development_Server" />
+      <BuildType Solution="Development|*" Project="Invalid" />
+      <BuildType Solution="Shipping Client|*" Project="Invalid" />
+      <BuildType Solution="Shipping Server|Win64" Project="Shipping_Server" />
+      <BuildType Solution="Shipping Server|Win64-arm64" Project="Win64_arm64_Shipping_Server" />
+      <BuildType Solution="Shipping Server|Win64-arm64ec" Project="Win64_arm64ec_Shipping_Server" />
+      <BuildType Solution="Shipping|*" Project="Invalid" />
+      <Platform Project="x64" />
+      <Build Solution="DebugGame Client|*" Project="false" />
+      <Build Solution="DebugGame Editor|*" Project="false" />
+      <Build Solution="DebugGame|*" Project="false" />
+      <Build Solution="Development Client|*" Project="false" />
+      <Build Solution="Development Editor|*" Project="false" />
+      <Build Solution="Development|*" Project="false" />
+      <Build Solution="Shipping Client|*" Project="false" />
+      <Build Solution="Shipping|*" Project="false" />
+    </Project>
+    <Project Path="Intermediate/ProjectFiles/TemplateSteam.vcxproj" Id="9f172a45-2686-390e-b860-1b98a306c593">
+      <BuildType Solution="DebugGame Client|*" Project="Invalid" />
+      <BuildType Solution="DebugGame Editor|*" Project="Invalid" />
+      <BuildType Solution="DebugGame Server|*" Project="Invalid" />
+      <BuildType Solution="DebugGame|Win64-arm64" Project="Win64_arm64_DebugGame" />
+      <BuildType Solution="DebugGame|Win64-arm64ec" Project="Win64_arm64ec_DebugGame" />
+      <BuildType Solution="Development Client|*" Project="Invalid" />
+      <BuildType Solution="Development Editor|*" Project="Invalid" />
+      <BuildType Solution="Development Server|*" Project="Invalid" />
+      <BuildType Solution="Development|Win64-arm64" Project="Win64_arm64_Development" />
+      <BuildType Solution="Development|Win64-arm64ec" Project="Win64_arm64ec_Development" />
+      <BuildType Solution="Shipping Client|*" Project="Invalid" />
+      <BuildType Solution="Shipping Server|*" Project="Invalid" />
+      <BuildType Solution="Shipping|Win64-arm64" Project="Win64_arm64_Shipping" />
+      <BuildType Solution="Shipping|Win64-arm64ec" Project="Win64_arm64ec_Shipping" />
+      <Platform Project="x64" />
+      <Build Solution="DebugGame Client|*" Project="false" />
+      <Build Solution="DebugGame Editor|*" Project="false" />
+      <Build Solution="DebugGame Server|*" Project="false" />
+      <Build Solution="Development Client|*" Project="false" />
+      <Build Solution="Development Editor|*" Project="false" />
+      <Build Solution="Development Server|*" Project="false" />
+      <Build Solution="Shipping Client|*" Project="false" />
+      <Build Solution="Shipping Server|*" Project="false" />
+    </Project>
+    <Project Path="Intermediate/ProjectFiles/TemplateSteamEOS.vcxproj" Id="825f4e32-9f1f-3e34-9f56-81bf5894c9ed">
+      <BuildType Solution="DebugGame Client|*" Project="Invalid" />
+      <BuildType Solution="DebugGame Editor|*" Project="Invalid" />
+      <BuildType Solution="DebugGame Server|*" Project="Invalid" />
+      <BuildType Solution="DebugGame|Win64-arm64" Project="Win64_arm64_DebugGame" />
+      <BuildType Solution="DebugGame|Win64-arm64ec" Project="Win64_arm64ec_DebugGame" />
+      <BuildType Solution="Development Client|*" Project="Invalid" />
+      <BuildType Solution="Development Editor|*" Project="Invalid" />
+      <BuildType Solution="Development Server|*" Project="Invalid" />
+      <BuildType Solution="Development|Win64-arm64" Project="Win64_arm64_Development" />
+      <BuildType Solution="Development|Win64-arm64ec" Project="Win64_arm64ec_Development" />
+      <BuildType Solution="Shipping Client|*" Project="Invalid" />
+      <BuildType Solution="Shipping Server|*" Project="Invalid" />
+      <BuildType Solution="Shipping|Win64-arm64" Project="Win64_arm64_Shipping" />
+      <BuildType Solution="Shipping|Win64-arm64ec" Project="Win64_arm64ec_Shipping" />
+      <Platform Project="x64" />
+      <Build Solution="DebugGame Client|*" Project="false" />
+      <Build Solution="DebugGame Editor|*" Project="false" />
+      <Build Solution="DebugGame Server|*" Project="false" />
+      <Build Solution="Development Client|*" Project="false" />
+      <Build Solution="Development Editor|*" Project="false" />
+      <Build Solution="Development Server|*" Project="false" />
+      <Build Solution="Shipping Client|*" Project="false" />
+      <Build Solution="Shipping Server|*" Project="false" />
+    </Project>
+  </Folder>
+  <Folder Name="/Programs/">
+    <Project Path="C:/Program Files/Epic Games/UE_5.8/Engine/Source/Programs/AutomationTool/AutomationTool.csproj">
+      <BuildType Project="Development" />
+    </Project>
+    <Project Path="C:/Program Files/Epic Games/UE_5.8/Engine/Source/Programs/UnrealBuildTool/UnrealBuildTool.csproj">
+      <BuildType Project="Development" />
+    </Project>
+  </Folder>
+  <Folder Name="/Programs/Automation/">
+    <Project Path="C:/Program Files/Epic Games/UE_5.8/Engine/Platforms/VisionOS/Source/Programs/AutomationTool/VisionOS.Automation.csproj">
+      <BuildType Project="Development" />
+    </Project>
+    <Project Path="C:/Program Files/Epic Games/UE_5.8/Engine/Source/Programs/AutomationTool/Android/Android.Automation.csproj">
+      <BuildType Project="Development" />
+    </Project>
+    <Project Path="C:/Program Files/Epic Games/UE_5.8/Engine/Source/Programs/AutomationTool/Apple/Apple.Automation.csproj">
+      <BuildType Project="Development" />
+    </Project>
+    <Project Path="C:/Program Files/Epic Games/UE_5.8/Engine/Source/Programs/AutomationTool/AutomationUtils/AutomationUtils.Automation.csproj">
+      <BuildType Project="Development" />
+    </Project>
+    <Project Path="C:/Program Files/Epic Games/UE_5.8/Engine/Source/Programs/AutomationTool/BuildGraph/BuildGraph.Automation.csproj">
+      <BuildType Project="Development" />
+    </Project>
+    <Project Path="C:/Program Files/Epic Games/UE_5.8/Engine/Source/Programs/AutomationTool/CookedEditor/CookedEditor.Automation.csproj">
+      <BuildType Project="Development" />
+    </Project>
+    <Project Path="C:/Program Files/Epic Games/UE_5.8/Engine/Source/Programs/AutomationTool/CrowdinLocalization/CrowdinLocalization.Automation.csproj">
+      <BuildType Project="Development" />
+    </Project>
+    <Project Path="C:/Program Files/Epic Games/UE_5.8/Engine/Source/Programs/AutomationTool/Gauntlet/Gauntlet.Automation.csproj">
+      <BuildType Project="Development" />
+    </Project>
+    <Project Path="C:/Program Files/Epic Games/UE_5.8/Engine/Source/Programs/AutomationTool/Insights/Insights.Automation.csproj">
+      <BuildType Project="Development" />
+    </Project>
+    <Project Path="C:/Program Files/Epic Games/UE_5.8/Engine/Source/Programs/AutomationTool/IOS/IOS.Automation.csproj">
+      <BuildType Project="Development" />
+    </Project>
+    <Project Path="C:/Program Files/Epic Games/UE_5.8/Engine/Source/Programs/AutomationTool/Linux/Linux.Automation.csproj">
+      <BuildType Project="Development" />
+    </Project>
+    <Project Path="C:/Program Files/Epic Games/UE_5.8/Engine/Source/Programs/AutomationTool/LiveLinkHub/LiveLinkHub.Automation.csproj">
+      <BuildType Project="Development" />
+    </Project>
+    <Project Path="C:/Program Files/Epic Games/UE_5.8/Engine/Source/Programs/AutomationTool/Localization/Localization.Automation.csproj">
+      <BuildType Project="Development" />
+    </Project>
+    <Project Path="C:/Program Files/Epic Games/UE_5.8/Engine/Source/Programs/AutomationTool/LowLevelTests/LowLevelTests.Automation.csproj">
+      <BuildType Project="Development" />
+    </Project>
+    <Project Path="C:/Program Files/Epic Games/UE_5.8/Engine/Source/Programs/AutomationTool/Mac/Mac.Automation.csproj">
+      <BuildType Project="Development" />
+    </Project>
+    <Project Path="C:/Program Files/Epic Games/UE_5.8/Engine/Source/Programs/AutomationTool/Microsoft/Microsoft.Automation.csproj">
+      <BuildType Project="Development" />
+    </Project>
+    <Project Path="C:/Program Files/Epic Games/UE_5.8/Engine/Source/Programs/AutomationTool/Mutable/Mutable.Automation.csproj">
+      <BuildType Project="Development" />
+    </Project>
+    <Project Path="C:/Program Files/Epic Games/UE_5.8/Engine/Source/Programs/AutomationTool/OneSkyLocalization/OneSkyLocalization.Automation.csproj">
+      <BuildType Project="Development" />
+    </Project>
+    <Project Path="C:/Program Files/Epic Games/UE_5.8/Engine/Source/Programs/AutomationTool/Scripts/AutomationScripts.Automation.csproj">
+      <BuildType Project="Development" />
+    </Project>
+    <Project Path="C:/Program Files/Epic Games/UE_5.8/Engine/Source/Programs/AutomationTool/SmartlingLocalization/SmartlingLocalization.Automation.csproj">
+      <BuildType Project="Development" />
+    </Project>
+    <Project Path="C:/Program Files/Epic Games/UE_5.8/Engine/Source/Programs/AutomationTool/SteamDeck/SteamDeck.Automation.csproj">
+      <BuildType Project="Development" />
+    </Project>
+    <Project Path="C:/Program Files/Epic Games/UE_5.8/Engine/Source/Programs/AutomationTool/Turnkey/Turnkey.Automation.csproj">
+      <BuildType Project="Development" />
+    </Project>
+    <Project Path="C:/Program Files/Epic Games/UE_5.8/Engine/Source/Programs/AutomationTool/TVOS/TVOS.Automation.csproj">
+      <BuildType Project="Development" />
+    </Project>
+    <Project Path="C:/Program Files/Epic Games/UE_5.8/Engine/Source/Programs/AutomationTool/Win/Win.Automation.csproj">
+      <BuildType Project="Development" />
+    </Project>
+    <Project Path="C:/Program Files/Epic Games/UE_5.8/Engine/Source/Programs/AutomationTool/XLocLocalization/XLocLocalization.Automation.csproj">
+      <BuildType Project="Development" />
+    </Project>
+  </Folder>
+  <Folder Name="/Programs/Shared/">
+    <Project Path="C:/Program Files/Epic Games/UE_5.8/Engine/Source/Programs/Shared/EpicGames.Analytics.Generators/EpicGames.Analytics.Generators.csproj">
+      <BuildType Project="Development" />
+    </Project>
+    <Project Path="C:/Program Files/Epic Games/UE_5.8/Engine/Source/Programs/Shared/EpicGames.Analytics.PerformanceTrends/EpicGames.Analytics.PerformanceTrends.csproj">
+      <BuildType Project="Development" />
+    </Project>
+    <Project Path="C:/Program Files/Epic Games/UE_5.8/Engine/Source/Programs/Shared/EpicGames.Analytics.Telemetry/EpicGames.Analytics.Telemetry.csproj">
+      <BuildType Project="Development" />
+    </Project>
+    <Project Path="C:/Program Files/Epic Games/UE_5.8/Engine/Source/Programs/Shared/EpicGames.AspNet/EpicGames.AspNet.csproj">
+      <BuildType Project="Development" />
+    </Project>
+    <Project Path="C:/Program Files/Epic Games/UE_5.8/Engine/Source/Programs/Shared/EpicGames.Benchmarks/EpicGames.Benchmarks.csproj">
+      <BuildType Project="Development" />
+    </Project>
+    <Project Path="C:/Program Files/Epic Games/UE_5.8/Engine/Source/Programs/Shared/EpicGames.Build/EpicGames.Build.csproj">
+      <BuildType Project="Development" />
+    </Project>
+    <Project Path="C:/Program Files/Epic Games/UE_5.8/Engine/Source/Programs/Shared/EpicGames.BuildGraph/EpicGames.BuildGraph.csproj">
+      <BuildType Project="Development" />
+    </Project>
+    <Project Path="C:/Program Files/Epic Games/UE_5.8/Engine/Source/Programs/Shared/EpicGames.Core/EpicGames.Core.csproj">
+      <BuildType Project="Development" />
+    </Project>
+    <Project Path="C:/Program Files/Epic Games/UE_5.8/Engine/Source/Programs/Shared/EpicGames.Horde/EpicGames.Horde.csproj">
+      <BuildType Project="Development" />
+    </Project>
+    <Project Path="C:/Program Files/Epic Games/UE_5.8/Engine/Source/Programs/Shared/EpicGames.IoHash/EpicGames.IoHash.csproj">
+      <BuildType Project="Development" />
+    </Project>
+    <Project Path="C:/Program Files/Epic Games/UE_5.8/Engine/Source/Programs/Shared/EpicGames.LogMatchers/EpicGames.LogMatchers.csproj">
+      <BuildType Project="Development" />
+    </Project>
+    <Project Path="C:/Program Files/Epic Games/UE_5.8/Engine/Source/Programs/Shared/EpicGames.MongoDB/EpicGames.MongoDB.csproj">
+      <BuildType Project="Development" />
+    </Project>
+    <Project Path="C:/Program Files/Epic Games/UE_5.8/Engine/Source/Programs/Shared/EpicGames.MsBuild/EpicGames.MsBuild.csproj">
+      <BuildType Project="Development" />
+    </Project>
+    <Project Path="C:/Program Files/Epic Games/UE_5.8/Engine/Source/Programs/Shared/EpicGames.OIDC/EpicGames.OIDC.csproj">
+      <BuildType Project="Development" />
+    </Project>
+    <Project Path="C:/Program Files/Epic Games/UE_5.8/Engine/Source/Programs/Shared/EpicGames.Oodle/EpicGames.Oodle.csproj">
+      <BuildType Project="Development" />
+    </Project>
+    <Project Path="C:/Program Files/Epic Games/UE_5.8/Engine/Source/Programs/Shared/EpicGames.Perforce.Fixture/EpicGames.Perforce.Fixture.csproj">
+      <BuildType Project="Development" />
+    </Project>
+    <Project Path="C:/Program Files/Epic Games/UE_5.8/Engine/Source/Programs/Shared/EpicGames.Perforce.Managed/EpicGames.Perforce.Managed.csproj">
+      <BuildType Project="Development" />
+    </Project>
+    <Project Path="C:/Program Files/Epic Games/UE_5.8/Engine/Source/Programs/Shared/EpicGames.Perforce/EpicGames.Perforce.csproj">
+      <BuildType Project="Development" />
+    </Project>
+    <Project Path="C:/Program Files/Epic Games/UE_5.8/Engine/Source/Programs/Shared/EpicGames.ProjectStore/EpicGames.ProjectStore.csproj">
+      <BuildType Project="Development" />
+    </Project>
+    <Project Path="C:/Program Files/Epic Games/UE_5.8/Engine/Source/Programs/Shared/EpicGames.Redis/EpicGames.Redis.csproj">
+      <BuildType Project="Development" />
+    </Project>
+    <Project Path="C:/Program Files/Epic Games/UE_5.8/Engine/Source/Programs/Shared/EpicGames.ScriptBuild/EpicGames.ScriptBuild.csproj">
+      <BuildType Project="Development" />
+    </Project>
+    <Project Path="C:/Program Files/Epic Games/UE_5.8/Engine/Source/Programs/Shared/EpicGames.Serialization/EpicGames.Serialization.csproj">
+      <BuildType Project="Development" />
+    </Project>
+    <Project Path="C:/Program Files/Epic Games/UE_5.8/Engine/Source/Programs/Shared/EpicGames.Slack/EpicGames.Slack.csproj">
+      <BuildType Project="Development" />
+    </Project>
+    <Project Path="C:/Program Files/Epic Games/UE_5.8/Engine/Source/Programs/Shared/EpicGames.Tracing/EpicGames.Tracing.csproj">
+      <BuildType Project="Development" />
+    </Project>
+    <Project Path="C:/Program Files/Epic Games/UE_5.8/Engine/Source/Programs/Shared/EpicGames.UBA/EpicGames.UBA.csproj">
+      <BuildType Project="Development" />
+    </Project>
+    <Project Path="C:/Program Files/Epic Games/UE_5.8/Engine/Source/Programs/Shared/EpicGames.UHT/EpicGames.UHT.csproj">
+      <BuildType Project="Development" />
+    </Project>
+  </Folder>
+  <Folder Name="/Programs/UnrealBuildTool.Plugins/">
+    <Project Path="C:/Program Files/Epic Games/UE_5.8/Engine/Plugins/ScriptPlugin/Source/ScriptGeneratorUbtPlugin/ScriptGeneratorUbtPlugin.ubtplugin.csproj">
+      <BuildType Project="Development" />
+    </Project>
+  </Folder>
+  <Folder Name="/Rules/">
+    <Project Path="C:/Program Files/Epic Games/UE_5.8/Engine/Intermediate/Build/BuildRulesProjects/MarketplaceRules/MarketplaceRules.csproj">
+      <BuildType Project="Development" />
+    </Project>
+    <Project Path="C:/Program Files/Epic Games/UE_5.8/Engine/Intermediate/Build/BuildRulesProjects/UE5ProgramRules/UE5ProgramRules.csproj">
+      <BuildType Project="Development" />
+    </Project>
+    <Project Path="C:/Program Files/Epic Games/UE_5.8/Engine/Intermediate/Build/BuildRulesProjects/UE5Rules/UE5Rules.csproj">
+      <BuildType Project="Development" />
+    </Project>
+    <Project Path="Intermediate/Build/BuildRulesProjects/TemplateModuleRules/TemplateModuleRules.csproj">
+      <BuildType Project="Development" />
     </Project>
   </Folder>
   <Folder Name="/Visualizers/">

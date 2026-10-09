@@ -80,12 +80,16 @@ private:
 	{
 		TArray<TWeakObjectPtr<UCommonActivatableWidget>> LayoutsAdded;
 		TArray<FUIExtensionHandle> ExtensionHandles;
+		bool bIsAdding = false;
+		bool bIsRemoved = false;
+
+		void Reset();
 	};
 
 	struct FPerContextData
 	{
 		TArray<TSharedPtr<FComponentRequestHandle>> ComponentRequests;
-		TMap<FObjectKey, FPerActorData> ActorData; 
+		TMap<FObjectKey, TSharedPtr<FPerActorData>> ActorData;
 	};
 
 	TMap<FGameFeatureStateChangeContext, FPerContextData> ContextData;
@@ -100,6 +104,4 @@ private:
 
 	void AddWidgets(AActor* Actor, FPerContextData& ActiveData);
 	void RemoveWidgets(AActor* Actor, FPerContextData& ActiveData);
-
-	bool bIsAdd;
 };
