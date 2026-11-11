@@ -99,6 +99,10 @@
 		{
 			"Name": "ControlRigDynamics",
 			"Enabled": true
+		},
+		{
+			"Name": "AllToolsets",
+			"Enabled": true
 		}
 	]
 }
